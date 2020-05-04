@@ -107,8 +107,14 @@ class MyLinkedList(object):
         '''
         if index < 0 or index >= self._size:
             return
-        if index == 0:  # if delete head
+        if index == 0:
+            #delete old head
+            #deletion means two things:
+            #1. most important: from linked list perspective, you can not see this node
+            #2. optional:from this node perspective, there is no other nodes after it
+            # if delete head
             new_head = self._head.next
+            self._size -= 1
             self._head.next = None  #
             self._head = new_head
             # if I remove the last and first node
